@@ -1,8 +1,9 @@
 class Solution:
     def findTheWinner(self, n: int, k: int) -> int:
-        remaining = set(range(1, n+1))
-        i = 0
-        while len(remaining) > 1:
-            i = (i + k - 1) % len(remaining)
-            remaining.remove(list(remaining)[i])
-        return list(remaining)[0]
+        friends_list = list(range(1, n + 1))
+
+        current_index = 0
+        while len(friends_list) > 1:
+            current_index = (current_index + k - 1) % len(friends_list)
+            friends_list.pop(current_index)
+        return friends_list[-1]
